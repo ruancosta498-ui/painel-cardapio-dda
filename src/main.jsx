@@ -1,0 +1,10 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { LayoutDashboard, UtensilsCrossed, Tags, PlusCircle, Settings, Store } from 'lucide-react';
+import './styles.css';
+
+function App(){
+ const menu=[['Dashboard',LayoutDashboard],['Produtos',UtensilsCrossed],['Categorias',Tags],['Adicionais',PlusCircle],['Configurações',Settings]];
+ return <div className="app"><aside><div className="brand"><Store/><div><strong>Painel Cardápio DDA</strong><small>Gestão do estabelecimento</small></div></div><nav>{menu.map(([label,Icon],i)=><button className={i===0?'active':''} key={label}><Icon size={19}/>{label}</button>)}</nav><div className="aside-foot">Cardápio conectado<br/><span>Delícia de Açaí</span></div></aside><main><header><div><span className="eyebrow">PAINEL ADMINISTRATIVO</span><h1>Visão geral</h1><p>Gerencie o cardápio que aparece no site da Delícia de Açaí.</p></div><div className="status"><i/> Sistema conectado</div></header><section className="cards"><div><span>Produtos</span><b>—</b><small>Cadastre e edite produtos</small></div><div><span>Categorias</span><b>—</b><small>Organize seu cardápio</small></div><div><span>Adicionais</span><b>—</b><small>Gerencie complementos</small></div><div><span>Status</span><b>Online</b><small>Disponível para clientes</small></div></section><section className="welcome"><div><span className="badge">PRÓXIMO PASSO</span><h2>Seu cardápio, sob seu controle.</h2><p>Este painel será a área onde o proprietário poderá alterar preços, nomes, fotos, categorias, adicionais e disponibilidade sem editar o código do site público.</p><button className="primary">Começar a configurar</button></div><div className="preview"><UtensilsCrossed size={42}/><strong>Delícia de Açaí</strong><span>Cardápio público</span></div></section></main></div>
+}
+createRoot(document.getElementById('root')).render(<App/>);
